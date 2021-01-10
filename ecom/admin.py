@@ -15,5 +15,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'product', 'is_bought', 'price']
+    list_display = ['id', 'user', 'products', 'is_bought', 'price']
 

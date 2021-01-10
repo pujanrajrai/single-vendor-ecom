@@ -34,12 +34,15 @@ class Product(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    products = models.ForeignKey(Product,on_delete=models.CASCADE)
     date_ordered = models.DateTimeField(auto_now=True)
     is_bought = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.products.name
+
     def price(self):
-        return self.product.price
+        return self.products.price
 
 
 

@@ -20,8 +20,7 @@
                             <h2 style="border-bottom: 2px solid black">Rs.{{ product.price }}</h2>
                             <h2 style="border-bottom: 2px solid black">Stock: {{ product.stock }}</h2>
                             <div style="border: 1px solid black">{{ product.description|safe }}</div><br>
-                            <button type="button" class="btn btn-primary">Add To cart</button><br>
-                            <button type="button" class="btn btn-primary">Buy Now</button>
+                            <a href="{% url 'ecom:add_to_cart' product.slug|slugify %}" class="btn btn-success">Add to card</a>
 
 
 

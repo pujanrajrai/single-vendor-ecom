@@ -15,8 +15,15 @@
 
 <body>
 <div class="w-100  top-div text-right">
-    <a href="#login" style="color: #0F0F0F;">login</a>
-    <a href="#login" style="color: #0F0F0F">signup</a>
+    {% if user.is_authenticated %}
+        hello {{ user }}
+        <a href="{% url 'accounts:logout' %}" style="color: #0F0F0F;background-color: red">logout</a>
+
+    {% else %}
+        <a href="{% url 'accounts:login' %}" style="color: #0F0F0F;background-color: red">login</a>
+        <a href="{% url 'accounts:register' %}" style="color: #0F0F0F;background-color: red">register</a>
+
+    {% endif %}
 </div>
 <div class="wrapper">
 
@@ -60,7 +67,9 @@
     </nav>
 
 </div>
-
+<div class="text-right mr-5 mt-1">
+<a href="{% url 'ecom:cart' %}" class="btn btn-warning ">View Cart</a>
+</div>
 {% block body %}
 
 {% endblock %}

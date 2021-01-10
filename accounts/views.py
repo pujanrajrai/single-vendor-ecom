@@ -4,7 +4,6 @@ from .forms import RegisterForm
 from .models import MyUser
 from django.contrib.auth.hashers import make_password
 
-
 # Create your views here.
 
 def register(request):
@@ -23,11 +22,10 @@ def register(request):
                 user = MyUser(email=email, password=make_password(password), username=username)
                 user.save()
                 user = auth.authenticate(email=email, password=password)
-                print(user)
                 if user is not None:
                     auth.login(request, user)
                     return redirect('ecom:home')
-                return redirect('accounts:login')
+                return redirect('accounts:register')
             else:
                 return render(request, 'accounts/register.html', {"form": form})
         return render(request, 'accounts/register.html', {"form": form})
