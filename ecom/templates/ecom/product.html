@@ -1,0 +1,34 @@
+{% extends 'ecom/base.html' %}
+{% block body %}
+
+    {% for product in products %}
+        <div class="container-fluid mt-5 mb-5">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card-group">
+                        <div class="card ml-2" style="width: 18rem;">
+                            <img class="card-img-top image-resize3"
+                                 src="{{ product.product_image.url }}" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" style="background-color:#ffffff;">
+                    <div class="card-group">
+                        <div class="card ml-2" style="width: 18rem;">
+                            <h1 style="border-bottom: 2px solid black">{{ product.name }}</h1>
+                            <h4 style="border-bottom: 2px solid black">Category: {{ product.category }}</h4>
+                            <h2 style="border-bottom: 2px solid black">Rs.{{ product.price }}</h2>
+                            <h2 style="border-bottom: 2px solid black">Stock: {{ product.stock }}</h2>
+                            <div style="border: 1px solid black">{{ product.description|safe }}</div><br>
+                            <button type="button" class="btn btn-primary">Add To cart</button><br>
+                            <button type="button" class="btn btn-primary">Buy Now</button>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
