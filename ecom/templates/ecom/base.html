@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Home Page</title>
+</head>
+<style>
+    .top-div {
+        background-color: white;
+        height: 34px;
+    }
+
+    .navbar {
+        background-color: #FCFCFC;
+    }
+
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    #text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .photo-div {
+        opacity: 0.2;
+        background-color: black;
+        margin-right: 20px;
+        margin-left: 20px;
+        height: 533px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .iframe-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .partnership-div {
+        background-color: #CCCCCC;
+        margin-right: 20px;
+        margin-left: 20px;
+        height: 730px;
+        text-align: center;
+    }
+
+    .photo-video {
+        background-color: #7F7F7F;
+        height: 340px;
+        text-align: center;
+    }
+
+    footer {
+        background-color: #0F0F0F;
+        height: 334px;
+        text-align: center;
+        color: white;
+    }
+
+    a {
+        color: white;
+    }
+
+    .overlay {
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: auto;
+        opacity: 0.5;
+        transition: .5s;
+        background: white;
+
+    }
+
+    .overlay:hover {
+        opacity: 1;
+        background: white;
+    }
+
+    .image-resize {
+        background-color: #fff;
+        border-radius: .25rem;
+        max-width: 100%;
+        height: 90px;
+        width: 380px;
+        object-fit: contain;
+        object-position: center center;
+    }
+
+    .image-resize1 {
+        background-color: #fff;
+        max-width: 100%;
+        height: 155px;
+        width: 205px;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .image-resize2 {
+        background-color: #fff;
+        max-width: 100%;
+        height: 192px;
+        width: auto;
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+    .login-image {
+        max-width: 100%;
+        width: 100px;
+        object-fit: contain;
+        margin-left: 7vh;
+    }
+</style>
+<body>
+<div class="w-100  top-div text-right">
+    <a href="#login" style="color: #0F0F0F;">login</a>
+    <a href="#login" style="color: #0F0F0F">signup</a>
+</div>
+<div class="wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+</div>
+
+{% block body %}
+{% endblock %}
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small  lighten-3 pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row" style="background-color: #0F0F0F">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Content -->
+
+                <img src="image/instamedia.png" alt="..." class="img-thumbnail">
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Contact Us</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            9808282207
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            insta@gmail.com
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            kathmandu,Nepal
+                        </p>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Our Company</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#!">About Us</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">Pricing</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">Stories</a>
+                        </p>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Grid column --><!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Company Policy</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#!">Privacy Policy</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">Terms and Conditions</a>
+                        </p>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Social Contacts</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#!">Facebook</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">Instagram</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#!">Twitter</a>
+                        </p>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="background-color: #0F0F0F">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> instamedia.com</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
