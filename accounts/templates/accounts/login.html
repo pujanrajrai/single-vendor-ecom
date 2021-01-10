@@ -1,0 +1,66 @@
+{% extends 'accounts/base.html' %}
+{% block body %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                <form class="login100-form validate-form flex-sb flex-w" id="login-form" method="post">
+                    {% csrf_token %}
+                    <span class="login100-form-title p-b-51">
+						login
+					</span>
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if errors %}<div class="alert alert-danger">
+                        <strong>{{ errors }}</strong>
+                    </div>{% endif %}
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                        <input class="input100" type="email" name="email" placeholder="Email" id="email">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                        <input class="input100" type="password" name="password" placeholder="Enter Password" id="pass1">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="flex-sb-m w-full p-t-3 p-b-24">
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <div>
+                            <a href="#" class="txt1">
+                                Forgot?
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" id="btn">
+                            Login
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+
+{% endblock %}

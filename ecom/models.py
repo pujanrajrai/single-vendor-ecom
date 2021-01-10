@@ -1,6 +1,7 @@
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils.text import slugify
+from accounts.models import MyUser
 
 
 class Category(models.Model):
@@ -20,10 +21,28 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = RichTextField()
 
+    def __str__(self):
+        return self.name
+
     def product_category(self):
         return self.category.category_name
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name+"-"+str(self.id))
+        self.slug = slugify(self.name + "-" + str(self.id))
         super(Product, self).save(*args, **kwargs)
+
+
+class Order(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    date_ordered = models.DateTimeField(auto_now=True)
+    is_bought = models.BooleanField(default=False)
+
+    def price(self):
+        return self.product.price
+
+
+
+
+
 
