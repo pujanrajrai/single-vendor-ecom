@@ -17,18 +17,18 @@
 <div class="w-100  top-div text-right">
     {% if user.is_authenticated %}
         hello {{ user }}
-        <a href="{% url 'accounts:logout' %}" style="color: #0F0F0F;background-color: red">logout</a>
+        <a href="{% url 'accounts:logout' %}" style="color: #0F0F0F;background-color: red" class="btn btn-primary">logout</a>
 
     {% else %}
-        <a href="{% url 'accounts:login' %}" style="color: #0F0F0F;background-color: red">login</a>
-        <a href="{% url 'accounts:register' %}" style="color: #0F0F0F;background-color: red">register</a>
+        <a href="{% url 'accounts:login' %}" class="btn btn-primary" style="color: #0F0F0F;background-color: red">login</a>
+        <a href="{% url 'accounts:register' %}" class="btn btn-primary" style="color: #0F0F0F;background-color: red">register</a>
 
     {% endif %}
 </div>
 <div class="wrapper">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="{% url 'ecom:home' %}">Ecommerce</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,25 +39,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
+                {% if user.is_admin %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="{% url 'dashboard:home' %}">Dashboard</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
+                {% endif %}
+
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

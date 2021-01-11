@@ -28,26 +28,28 @@ def addtocart(request, slug):
     else:
         return HttpResponse("error")
 
+
 @login_required
 def viewcart(request):
     cart_item = Order.objects.filter(user=request.user).filter(is_bought=False)
-    total=0
+    total = 0
     for cart in cart_item:
         total = total + int(cart.products.price)
     print(total)
 
-    return render(request, 'ecom/cart.html', {'cart_item': cart_item,'total':total})
+    return render(request, 'ecom/cart.html', {'cart_item': cart_item, 'total': total})
 
 
 @login_required
-def remove_from_cart(request,id):
+def remove_from_cart(request, id):
     if request.method == "POST":
         Order.objects.filter(id=id).delete()
         return redirect('/')
     return redirect('/')
 
+
 @login_required()
 def checkout(request):
-    if request.method=="POST":
+    if request.method == "POST":
         Order.objects.filter(user=request.user).update(is_bought=True)
         return redirect('ecom:home')

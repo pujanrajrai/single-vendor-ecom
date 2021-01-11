@@ -1,0 +1,62 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block body %}
+    <style>
+        img {
+            width: 100px;
+            height: 200px;
+            object-fit: cover;
+            padding: 3px;
+        }
+    </style>
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Dashboard</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+            <div class="row">
+                <div class="card m-5">
+
+                    <div class="card-header white">
+                        <h5 class="font-weight-bold mb-0">
+                            Total user
+                        </h5>
+                    </div>
+
+                    <div class="card-body">
+                        {{ no_user }}
+                    </div>
+
+                </div>
+
+                <div class="card m-5">
+
+                    <div class="card-header white">
+                        <h5 class="font-weight-bold mb-0">
+                            Total Sale
+                        </h5>
+                    </div>
+
+                    <div class="card-body">
+                        Rs. {{ total }}
+                    </div>
+
+                </div>
+                <div class="card m-5">
+
+                    <div class="card-header white">
+                        <h5 class="font-weight-bold mb-0">
+                            Total Product
+                        </h5>
+                    </div>
+
+                    <div class="card-body">
+                        {{ total_product }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'ecom',
     'ckeditor',
     'accounts',
-    'dashboard'
+    'dashboard',
 ]
 
 MIDDLEWARE = [
