@@ -15,15 +15,7 @@
 
 <body>
 <div class="w-100  top-div text-right">
-    {% if user.is_authenticated %}
-        hello {{ user }}
-        <a href="{% url 'accounts:logout' %}" style="color: #0F0F0F;background-color: red" class="btn btn-primary">logout</a>
 
-    {% else %}
-        <a href="{% url 'accounts:login' %}" class="btn btn-primary" style="color: #0F0F0F;background-color: red">login</a>
-        <a href="{% url 'accounts:register' %}" class="btn btn-primary" style="color: #0F0F0F;background-color: red">register</a>
-
-    {% endif %}
 </div>
 <div class="wrapper">
 
@@ -40,9 +32,9 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 {% if user.is_admin %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'dashboard:home' %}">Dashboard</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard:home' %}">Dashboard</a>
+                    </li>
                 {% endif %}
 
             </ul>
@@ -50,12 +42,24 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            {% if user.is_authenticated %}
+                hello {{ user }}
+                <a href="{% url 'accounts:logout' %}" style="color: #0F0F0F;background-color: red"
+                   class="btn btn-outline-success">logout</a>
+
+            {% else %}
+                &nbsp;<a href="{% url 'accounts:login' %}" class="btn btn-outline-success"
+                   >login</a>&nbsp;&nbsp;
+                <a href="{% url 'accounts:register' %}" class="btn btn-outline-success"
+                >register</a>
+
+            {% endif %}
         </div>
     </nav>
 
 </div>
 <div class="text-right mr-5 mt-1">
-<a href="{% url 'ecom:cart' %}" class="btn btn-warning ">View Cart</a>
+    <a href="{% url 'ecom:cart' %}" class="btn btn-warning ">View Cart</a>
 </div>
 {% block body %}
 
