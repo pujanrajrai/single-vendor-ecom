@@ -35,12 +35,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+]
+DJANGO_APP = [
     'ecom',
-    'ckeditor',
     'accounts',
     'dashboard',
 ]
 
+THIRD_PARTY_APP = [
+    'ckeditor',
+]
+
+INSTALLED_APPS = INSTALLED_APPS + DJANGO_APP + THIRD_PARTY_APP
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

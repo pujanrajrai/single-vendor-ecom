@@ -1,4 +1,4 @@
-#!/Users/development/django/ecommerece/venv/bin/python
+#!/Users/pujanrajrai/Downloads/ecommerece 2/venv/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

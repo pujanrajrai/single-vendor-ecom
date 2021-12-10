@@ -14,13 +14,13 @@
 </head>
 
 <body>
-<div class="w-100  top-div text-right">
+<!--<div class="w-100  top-div text-right">-->
 
-</div>
+<!--</div>-->
 <div class="wrapper">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'ecom:home' %}">Ecommerce</a>
+        <a class="navbar-brand" href="#">Mr JP Nepal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="navbar-brand" href="{% url 'ecom:home' %}">Home</a>
                 </li>
                 {% if user.is_admin %}
                     <li class="nav-item">
@@ -38,12 +38,12 @@
                 {% endif %}
 
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'ecom:search' %}">
+                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             {% if user.is_authenticated %}
-                hello {{ user }}
+                &nbsp;&nbsp;<button class="btn btn-outline-success">Hello {{user}} </button>&nbsp;&nbsp;&nbsp;
                 <a href="{% url 'accounts:logout' %}" style="color: #0F0F0F;background-color: red"
                    class="btn btn-outline-success">logout</a>
 
@@ -81,7 +81,7 @@
 
                 <!-- Content -->
 
-                <img src="{% static 'images/instamedia.png' %}" alt="..." class="img-thumbnail">
+                <img src="{% static 'images/jp.png' %}" alt="..." class="img-thumbnail">
 
             </div>
             <!-- Grid column -->

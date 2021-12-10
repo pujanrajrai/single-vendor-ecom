@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
-import requests as req
+# import requests as req
 
 from .models import Product, Category, Order
 from .forms import OrderForm
@@ -71,3 +71,13 @@ def checkout(request):
         print(request.GET.get('total'))
         Order.objects.filter(user=request.user).update(is_bought=True)
         return redirect('ecom:home')
+
+
+
+def search_product(request):
+    search=request.GET.get("search")
+    print("hello")
+    print(search)
+    context = {"products": Product.objects.filter(name=search)}
+    return render(request,'ecom/product.html',context)
+
